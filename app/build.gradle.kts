@@ -1,16 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "com.alceurneto.miniregister"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.alceurneto.miniregister"
         minSdk = 30
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -50,6 +51,13 @@ android {
 }
 
 dependencies {
+    // Room:
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler) // To use Kotlin Symbol Processing (KSP)
+    implementation(libs.androidx.room.ktx) // optional - Kotlin Extensions and Coroutines support for Room
+    testImplementation(libs.androidx.room.testing) // optional - Test helpers
+    implementation(libs.androidx.room.paging) // optional - Paging 3 Integration
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
