@@ -15,7 +15,7 @@ import java.math.BigDecimal
 data class OperationItem(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val operationId: Int,
-    val goodsId: Int,
+    val goodsId: Int?,
     val quantity: Int,
     val value: BigDecimal,
 )

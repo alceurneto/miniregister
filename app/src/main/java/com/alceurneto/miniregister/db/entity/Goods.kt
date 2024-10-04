@@ -19,6 +19,6 @@ data class Goods(
     val name: String,
     val value: BigDecimal?,
     val description: String?,
-    val isOutOfStack: Boolean,
+    val isOutOfStock: Boolean,
     val order: Int,
 )
